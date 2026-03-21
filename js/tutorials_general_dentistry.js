@@ -1,11 +1,11 @@
-
 const menuItems = [ 
-     
-    { text: "Pharmacological", href: "#tab-2", active: true, 
+    
+    { text: "General Dentistry", href: "#tab-4", active: true, 
         video_link: [
-            { name: "Add In Your Prescription", link: "img/latest_videos/pharmacological/1.jpeg", lightbox: "event-1", delay: "0.1s" , href:"https://www.youtube.com/embed/FWj9oUSgM4A?rel=0"},
-        ]
-    }
+            { name: "Dry Socket", link: "img/latest_videos/general_dentistry/1.jpeg", lightbox: "event-5", delay: "0.1s" , href:"https://www.youtube.com/embed/AlCfoBCPi8U?rel=0"},
+            { name: "Inferior Alveolar Nerve Block", link: "img/latest_videos/general_dentistry/2.jpeg", lightbox: "event-5", delay: "0.1s" , href:"https://www.youtube.com/embed/upoUwuEAZw8?rel=0"},
+        ] }, 
+    
 ];
 
 const latest_videosHTML = `
@@ -44,7 +44,7 @@ const latest_videosHTML = `
 </div>
 `
 
-document.getElementById("tutorials_pharmacological").innerHTML = latest_videosHTML;
+document.getElementById("tutorials_general_dentistry").innerHTML = latest_videosHTML;
 
 function setvideounorderedlistHTML() {
     // Build menu
