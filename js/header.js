@@ -12,10 +12,10 @@ const headerHTML = `
             <a href="index.html" id="home" class="nav-item nav-link" >Home</a>
             <a href="about.html" id="about_us" class="nav-item nav-link">About Us</a>
             <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Notes/eBooks</a>
+                <a href="#" id="notes_ebook" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Notes/eBooks</a>
                 <div class="dropdown-menu bg-light">
-                    <a href="book.html" class="dropdown-item" onclick="setActive(this)">Free</a>
-                    <a href="blog.html" class="dropdown-item" onclick="setActive(this)">Paid</a>
+                    <a href="ebook_free.html" class="dropdown-item" onclick="setActive(this)">Free</a>
+                    <a href="ebook_paid.html" class="dropdown-item" onclick="setActive(this)">Paid</a>
                 </div>
             </div>
             <div class="nav-item dropdown">
