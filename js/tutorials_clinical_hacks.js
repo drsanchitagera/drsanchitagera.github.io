@@ -44,7 +44,7 @@ const latest_videosHTML = `
 </div>
 `
 
-document.getElementById("tutorials_pharmacological").innerHTML = latest_videosHTML;
+document.getElementById("tutorials_clinical_hacks").innerHTML = latest_videosHTML;
 
 function setvideounorderedlistHTML() {
     // Build menu
