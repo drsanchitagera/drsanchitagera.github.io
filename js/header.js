@@ -21,8 +21,11 @@ const headerHTML = `
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Tutorials</a>
                 <div class="dropdown-menu bg-light">
-                    <a href="book.html" class="dropdown-item" onclick="setActive(this)">For Dentists</a>
-                    <a href="blog.html" class="dropdown-item" onclick="setActive(this)">For General Public</a>
+                    <a href="tutorials_pharmacological.html" class="dropdown-item" onclick="setActive(this)">For Pharmacological</a>
+                    <a href="tutorials_endodontics.html" class="dropdown-item" onclick="setActive(this)">For Endodontics</a>
+                    <a href="tutorials_general_dentistry.html" class="dropdown-item" onclick="setActive(this)">For General Dentistry</a>
+                    <a href="tutorials_dental_materials.html" class="dropdown-item" onclick="setActive(this)">For Dental Materials</a>
+                    <a href="tutorials_clinical_hacks.html" class="dropdown-item" onclick="setActive(this)">For Clinical Hacks</a>
                 </div>
             </div>        
             <a href="contact.html" class="nav-item nav-link" onclick="setActive(this)">Contact Us</a>
