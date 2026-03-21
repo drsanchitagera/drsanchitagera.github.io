@@ -42,7 +42,7 @@ const latest_videosHTML = `
 </div>
 `
 
-document.getElementById("tutorials_pharmacological").innerHTML = latest_videosHTML;
+document.getElementById("tutorials_dental_materials").innerHTML = latest_videosHTML;
 
 function setvideounorderedlistHTML() {
     // Build menu
