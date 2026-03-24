@@ -30,11 +30,12 @@ const headerHTML = `
             </div>        
             <a href="contact.html" class="nav-item nav-link" onclick="setActive(this)">Contact Us</a>
         </div>
-        <div class="d-flex justify-content-end">
-            <a href="" class="btn btn-primary py-2 px-4 rounded-pill">Book Now</a>
-        </div>
+        
     </div>
 </nav>
 `
 document.getElementById("header").innerHTML = headerHTML;
 
+{/* <div class="d-flex justify-content-end">
+    <a href="" class="btn btn-primary py-2 px-4 rounded-pill">Book Now</a>
+</div> */}
