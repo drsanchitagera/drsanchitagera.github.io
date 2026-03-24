@@ -4,7 +4,7 @@ const paidBooks = [
     title: "Systemic Diseases & Dentistry",
     price: 999,
     img: "img/our_books/paid/4.jpeg",
-    desc: ""
+    desc: "This comprehensive guide provides detailed insights into systemic diseases, their oral manifestations, and the essential pharmacological knowledge for dentists."
   },
   {
     title: "Physiology Notes",
