@@ -33,10 +33,12 @@ let ebook_free = `
         </small>
     </div>
     <div>
-      <a href="#" class="btn btn-primary fw-bold text-uppercase rounded-pill px-4 py-2 mb-3">
+      <a href="#" class="btn btn-primary fw-bold text-uppercase rounded-pill px-4 py-2 mb-3" data-bs-toggle="modal" data-bs-target="#buyNowModal">
         <i class="bi bi-cart-fill me-2"></i> Buy Now
       </a>
     </div>
+    
+
   </div>
 
     <div class="tab-class text-center">
