@@ -691,6 +691,26 @@
              <!-- Copyright End -->
         <!-- Footer End -->
 
+        <div class="modal fade" id="welcomeModal" tabindex="-1" aria-labelledby="welcomeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="welcomeModalLabel">Welcome!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <!-- Responsive Image -->
+                    <img src="img/landing_page.jpeg" alt="Modal Image" class="img-fluid rounded">
+                </div>
+
+                <div class="modal-footer">
+                <a href="#" class="btn btn-primary fw-bold text-uppercase rounded-pill px-4 py-2 mb-3">
+                    <i class="bi bi-cart-fill me-2"></i> Buy Now
+                </a>
+                </div>
+            </div>
+            </div>
+        </div>
 
         <!-- Back to Top -->
         <a href="#" class="btn btn-md-square btn-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
@@ -718,6 +738,11 @@
             const aboutUsLink = document.getElementById("home"); 
             // Append the "active" class 
             aboutUsLink.classList.add("active");
+
+            window.onload = function() {
+            var myModal = new bootstrap.Modal(document.getElementById('welcomeModal'));
+            myModal.show();
+            };
         </script>
 
     </body>

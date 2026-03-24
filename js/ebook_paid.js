@@ -1,6 +1,12 @@
 // Array of paid eBooks
 const paidBooks = [
   {
+    title: "Systemic Diseases & Dentistry",
+    price: 999,
+    img: "img/our_books/paid/4.jpeg",
+    desc: ""
+  },
+  {
     title: "Physiology Notes",
     price: 499,
     img: "img/our_books/paid/3.jpeg",
