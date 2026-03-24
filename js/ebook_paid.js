@@ -30,9 +30,20 @@ const paidBooks = [
 let ebook_paid = `
 <div class="container-fluid menu bg-light py-6 my-6">
   <div class="container">
-    <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
-      <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Paid</small>
+    
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="flex-grow-1 text-center">
+        <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">
+          Paid
+        </small>
     </div>
+    <div>
+      <a href="#" class="btn btn-primary fw-bold text-uppercase rounded-pill px-4 py-2 mb-3">
+        <i class="bi bi-cart-fill me-2"></i> Buy Now
+      </a>
+    </div>
+    </div>
+
     <div class="tab-class text-center">
         <div class="row g-4">
 `;
