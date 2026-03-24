@@ -38,7 +38,7 @@ let ebook_paid = `
         </small>
     </div>
     <div>
-      <a href="#" class="btn btn-primary fw-bold text-uppercase rounded-pill px-4 py-2 mb-3">
+      <a href="#" class="btn btn-primary fw-bold text-uppercase rounded-pill px-4 py-2 mb-3" data-bs-toggle="modal" data-bs-target="#buyNowModalPaid">
         <i class="bi bi-cart-fill me-2"></i> Buy Now
       </a>
     </div>
