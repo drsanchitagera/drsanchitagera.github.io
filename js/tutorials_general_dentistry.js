@@ -9,28 +9,6 @@ const menuItems = [
 ];
 
 const latest_videosHTML = `
-<div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content rounded-0">
-            <div class="modal-header">
-                <h5 class="modal-title" id="videoModalLabel">Youtube Video</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="ratio ratio-16x9">
-                <iframe id="videoFrame"
-                        src=""
-                        title="YouTube video player"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin"
-                        allowfullscreen>
-                </iframe>
-                </div>
-            </div>
-            </div>
-        </div>
-        </div>
 <div class="container-fluid event py-6">
     <div class="container">
         

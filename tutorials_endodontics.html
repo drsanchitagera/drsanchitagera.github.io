@@ -14,6 +14,7 @@
         <meta charset="utf-8">
         <meta name="google-site-verification" content="BZJE0Qw94OJoqJm-hhLkKJquPhIaxoZ9vNldijco9vc" />
         <title>Endodontic Tutorials & Root Canal Video Guides | Dr. Sanchita Gera</title>
+        <link rel="canonical" href="https://drsanchitagera.github.io/tutorials_endodontics.html" />
         <meta name="description" content="Master endodontic procedures with expert video tutorials by Dr. Sanchita Gera. Clinical guides on root canal treatment, canal preparation, and advanced endodontics.">
         <meta name="keywords" content="Endodontic tutorials, Root Canal video, Clinical Endodontics, Canal preparation guide, Dr. Sanchita Gera, Dental student tutorials">
 
@@ -111,7 +112,7 @@
 
 
         <!-- Back to Top -->
-        <a href="#" class="btn btn-md-square btn-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
+        <a href="#" class="btn btn-md-square btn-primary rounded-circle back-to-top" aria-label="Scroll to top"><i class="fa fa-arrow-up"></i></a>
 
         
         <!-- JavaScript Libraries -->
@@ -129,13 +130,10 @@
         <script src="js/header.js"></script>
         <script src="js/tutorials_endodontics.js"></script>
         <script>
-            // // Find the element by ID 
-            // const ebook_freeLink = document.getElementById("notes_ebook"); 
-            // // Append the "active" class 
-            // aboutUsLink.classList.add("active");
-
-            // const ebook_free_href = document.getElementById("notes_ebook_href");
-            // ebook_free_href.remove();
+            const materialLink = document.getElementById("tutorials_nav"); 
+            if (materialLink) {
+                materialLink.classList.add("active");
+            }
         </script>
     </body>
 </html>

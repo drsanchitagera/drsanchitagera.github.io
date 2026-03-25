@@ -13,10 +13,11 @@
         <meta charset="utf-8">
         <meta name="google-site-verification" content="BZJE0Qw94OJoqJm-hhLkKJquPhIaxoZ9vNldijco9vc" />
         <link rel="icon" type="image/x-icon" href="img/favicon.ico">
-        <title>Dr Sanchita Gera</title>
+        <title>Clinical Dental Hacks & Tips | Efficiency in Dentistry | Dr. Sanchita Gera</title>
+        <meta name="description" content="Discover time-saving clinical dental hacks and shortcuts by Dr. Sanchita Gera. Improve your chairside efficiency with these professional tips and tricks.">
+        <meta name="keywords" content="Clinical dental hacks, Dentistry shortcuts, Dental chairside tips, Dr. Sanchita Gera, Dental efficiency, Root canal hacks, Restorative tips">
+        <link rel="canonical" href="https://drsanchitagera.github.io/tutorials_clinical_hacks.html" />
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="" name="keywords">
-        <meta content="" name="description">
         <meta name="referrer" content="strict-origin-when-cross-origin" />
         <!-- Google Web Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -55,7 +56,8 @@
         <!-- Hero Start -->
         <div class="container-fluid bg-light py-6 my-6 mt-0">
             <div class="container text-center animated bounceInDown">
-                <h1 class="display-1 mb-4">Tutorials</h1>
+                <h1 class="display-1 mb-4">Clinical Dental Hacks</h1>
+                <p class="lead text-dark">Smart shortcuts and clinical pearls to enhance your daily dental practice.</p>
             </div>
         </div>
         <!-- Hero End -->
@@ -70,13 +72,13 @@
             <div class="modal-dialog">
                 <div class="modal-content rounded-0">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Youtube Video</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Dental Clinical Hack Tutorials</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <!-- 16:9 aspect ratio -->
                         <div class="ratio ratio-16x9">
-                            <iframe class="embed-responsive-item" src="" id="video" allowfullscreen allowscriptaccess="always"
+                            <iframe class="embed-responsive-item" src="" id="videoFrame" allowfullscreen allowscriptaccess="always"
                                 allow="autoplay"></iframe>
                         </div>
                     </div>
@@ -86,7 +88,7 @@
         
 
         <!-- Back to Top -->
-        <a href="#" class="btn btn-md-square btn-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
+        <a href="#" class="btn btn-md-square btn-primary rounded-circle back-to-top" aria-label="Scroll to top"><i class="fa fa-arrow-up"></i></a>
 
         
         <!-- JavaScript Libraries -->
@@ -104,13 +106,10 @@
         <script src="js/header.js"></script>
         <script src="js/tutorials_clinical_hacks.js"></script>
         <script>
-            // // Find the element by ID 
-            // const ebook_freeLink = document.getElementById("notes_ebook"); 
-            // // Append the "active" class 
-            // aboutUsLink.classList.add("active");
-
-            // const ebook_free_href = document.getElementById("notes_ebook_href");
-            // ebook_free_href.remove();
+        const hackLink = document.getElementById("tutorials_nav"); 
+        if (hackLink) {
+            hackLink.classList.add("active");
+        }
         </script>
     </body>
 </html>
