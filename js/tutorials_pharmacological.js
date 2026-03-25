@@ -9,7 +9,6 @@ const menuItems = [
 ];
 
 const latest_videosHTML = `
-
 <div class="container-fluid event py-6">
     <div class="container">
         
