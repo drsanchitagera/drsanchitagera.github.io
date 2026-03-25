@@ -11,13 +11,35 @@
 
             gtag('config', 'G-C2NERZVHCP');
         </script>
+        <script type="application/ld+json">
+            {
+            "@context": "https://schema.org",
+            "@type": "MedicalWebPage",
+            "name": "Premium Dental Clinical Resources",
+            "description": "Professional dental notes covering the intersection of systemic health and clinical dentistry.",
+            "lastReviewed": "2026-03-25",
+            "reviewedBy": {
+                "@type": "Person",
+                "name": "Dr. Sanchita Gera"
+            },
+            "mainEntity": {
+                "@type": "ItemList",
+                "itemListElement": [
+                "Systemic Diseases & Dentistry",
+                "Physiology for Dental Students",
+                "Pregnancy and Dentistry Guidelines",
+                "Diabetes Management in Dental Practice"
+                ]
+            }
+            }
+        </script>
         <meta charset="utf-8">
         <meta name="google-site-verification" content="BZJE0Qw94OJoqJm-hhLkKJquPhIaxoZ9vNldijco9vc" />
-        <title>Dr Sanchita Gera</title>
+        <title>Premium Dental Clinical Notes | Systemic Diseases & Physiology | Dr. Sanchita Gera</title>
+        <meta name="description" content="Access premium dental clinical notes by Dr. Sanchita Gera. Detailed guides on Systemic Diseases, Physiology, Pregnancy & Dentistry, and Diabetes management for dental professionals.">
+        <meta name="keywords" content="Systemic Diseases and Dentistry notes, Physiology for Dentists, Pregnancy dental care guide, Diabetes in Dentistry, Professional Dental PDF, Dr. Sanchita Gera Premium Notes">
         <link rel="icon" type="image/x-icon" href="img/favicon.ico">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="" name="keywords">
-        <meta content="" name="description">
         <meta name="referrer" content="strict-origin-when-cross-origin" />
 
         <!-- Google Web Fonts -->
@@ -61,7 +83,8 @@
         <!-- Hero Start -->
         <div class="container-fluid bg-light py-6 my-6 mt-0">
             <div class="container text-center animated bounceInDown">
-                <h1 class="display-1 mb-4">Notes/E-Boooks</h1>
+                <h1 class="display-1 mb-4">Premium Clinical Dental Notes</h1>
+            <p class="lead">In-depth professional resources for advanced clinical practice.</p>
             </div>
         </div>
         <!-- Hero End -->
@@ -123,14 +146,14 @@
                 </div>
                 
                 <div class="mb-3">
-                <label for="userMessage" class="form-label">Book Name</label>
-                <select class="form-control" id="userMessage" name="message" required>
-                    <option value="">-- Select a Book --</option>
-                    <option value="Calcified Canals">Systemic Diseases & Dentistry</option>
-                    <option value="BMP Mistakes">Physiology Notes</option>
-                    <option value="Irrigants">Pregnancy & Dentistry</option>
-                    <option value="Paediatric Drug Dosage">Diabetes & Dentistry</option>
-                </select>
+                    <label for="userMessage" class="form-label">Select Premium Book</label>
+                    <select class="form-control" id="userMessage" name="message" required title="Select the premium dental guide you wish to purchase">
+                        <option value="">-- Select a Premium Book --</option>
+                        <option value="Systemic Diseases">Systemic Diseases & Dentistry</option>
+                        <option value="Physiology Notes">Physiology Clinical Notes</option>
+                        <option value="Pregnancy and Dentistry">Pregnancy & Dentistry Guide</option>
+                        <option value="Diabetes and Dentistry">Diabetes & Dentistry Management</option>
+                    </select>
                 </div>
 
                 
@@ -205,13 +228,15 @@
         <script src="js/header.js"></script>
         <script src="js/ebook_paid.js"></script>
         <script>
-            // Find the element by ID 
-            const ebook_freeLink = document.getElementById("notes_ebook"); 
-            // Append the "active" class 
-            aboutUsLink.classList.add("active");
+            const notesLink = document.getElementById("notes_ebook");
+            if (notesLink) {
+                notesLink.classList.add("active");
+            }
 
-            const ebook_free_href = document.getElementById("notes_ebook_href");
-            ebook_free_href.remove();
+            const notesHref = document.getElementById("notes_ebook_href");
+            if (notesHref) {
+                notesHref.remove();
+            }
         </script>
     </body>
 </html>

@@ -11,13 +11,38 @@
 
             gtag('config', 'G-C2NERZVHCP');
         </script>
+        <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Clinical Dental E-books by Dr. Sanchita Gera",
+        "description": "Professional dental resources for students and practitioners.",
+        "itemListElement": [
+            {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Calcified Canals Guide"
+            },
+            {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "BMP Mistakes in Endodontics"
+            },
+            {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Paediatric Drug Dosage Chart"
+            }
+        ]
+        }
+        </script>
         <meta charset="utf-8">
         <meta name="google-site-verification" content="BZJE0Qw94OJoqJm-hhLkKJquPhIaxoZ9vNldijco9vc" />
-        <title>Dr Sanchita Gera</title>
+        <title>Dental Clinical Notes & E-Books | Dr. Sanchita Gera</title>
+        <meta name="description" content="Download dental e-books and clinical notes by Dr. Sanchita Gera. Resources include guides on Calcified Canals, BMP Mistakes, Irrigants, and Paediatric Drug Dosage.">
+        <meta name="keywords" content="Dental E-books, Endodontic Notes, Calcified Canals PDF, BMP Mistakes, Pediatric Dentistry Dosage Guide, Dental Clinical Resources">
         <link rel="icon" type="image/x-icon" href="img/favicon.ico">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="" name="keywords">
-        <meta content="" name="description">
         <meta name="referrer" content="strict-origin-when-cross-origin" />
 
         <!-- Google Web Fonts -->
@@ -62,6 +87,7 @@
         <div class="container-fluid bg-light py-6 my-6 mt-0">
             <div class="container text-center animated bounceInDown">
                 <h1 class="display-1 mb-4">Notes/E-Boooks</h1>
+                <p class="lead">Enhance your clinical practice with our expert-curated dental resources.</p>
             </div>
         </div>
         <!-- Hero End -->
@@ -128,15 +154,15 @@
                 </div>
                 
                 <div class="mb-3">
-                <label for="userMessage" class="form-label">Book Name</label>
-                <select class="form-control" id="userMessage" name="message" required>
-                    <option value="">-- Select a Book --</option>
-                    <option value="Calcified Canals">Calcified Canals</option>
-                    <option value="BMP Mistakes">BMP Mistakes</option>
-                    <option value="Irrigants">Irrigants</option>
-                    <option value="Paediatric Drug Dosage">Paediatric Drug Dosage</option>
-                </select>
-                </div>
+    <label for="userMessage" class="form-label">Select Resource</label>
+    <select class="form-control" id="userMessage" name="message" required title="Choose a dental e-book to receive via email">
+        <option value="">-- Select a Clinical Guide --</option>
+        <option value="Calcified Canals">Endodontics: Calcified Canals Guide</option>
+        <option value="BMP Mistakes">Avoiding BMP Mistakes</option>
+        <option value="Irrigants">Clinical Use of Irrigants</option>
+        <option value="Paediatric Drug Dosage">Paediatric Drug Dosage Protocol</option>
+    </select>
+</div>
 
                 
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -215,13 +241,17 @@
         <script src="js/header.js"></script>
         <script src="js/ebook_free.js"></script>
         <script>
-            // Find the element by ID 
-            // const ebook_freeLink = document.getElementById("notes_ebook"); 
-            // // Append the "active" class 
-            // aboutUsLink.classList.add("active");
+            
+    const notesLink = document.getElementById("notes_ebook");
+    if (notesLink) {
+        notesLink.classList.add("active");
+    }
 
-            // const ebook_free_href = document.getElementById("notes_ebook_href");
-            // ebook_free_href.remove();
+    const notesHref = document.getElementById("notes_ebook_href");
+    if (notesHref) {
+        notesHref.remove();
+    }
+
         </script>
     </body>
 </html>
