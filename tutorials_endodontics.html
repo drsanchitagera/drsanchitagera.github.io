@@ -109,7 +109,7 @@
             </div>
         </div>
         <!-- Fact End -->
-
+        <div id="footer"></div>
 
         <!-- Back to Top -->
         <a href="#" class="btn btn-md-square btn-primary rounded-circle back-to-top" aria-label="Scroll to top"><i class="fa fa-arrow-up"></i></a>
@@ -129,11 +129,11 @@
         <script src="js/main.js"></script>
         <script src="js/header.js"></script>
         <script src="js/tutorials_endodontics.js"></script>
+        <script src="js/footer.js"></script>
         <script>
-            const materialLink = document.getElementById("tutorials_nav"); 
-            if (materialLink) {
-                materialLink.classList.add("active");
-            }
+            // Highlight Policies menu item
+            const tutorials = document.getElementById("tutorials"); 
+            if(tutorials) tutorials.classList.add("active");
         </script>
     </body>
 </html>

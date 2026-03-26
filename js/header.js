@@ -18,8 +18,8 @@ const headerHTML = `
                     <a href="ebook_paid.html" class="dropdown-item" onclick="setActive(this)">Paid</a>
                 </div>
             </div>
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Tutorials</a>
+            <div class="nav-item dropdown" >
+                <a href="#" id="tutorials" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Tutorials</a>
                 <div class="dropdown-menu bg-light">
                     <a href="tutorials_pharmacological.html" class="dropdown-item" onclick="setActive(this)">For Pharmacological</a>
                     <a href="tutorials_endodontics.html" class="dropdown-item" onclick="setActive(this)">For Endodontics</a>
@@ -28,7 +28,8 @@ const headerHTML = `
                     <a href="tutorials_clinical_hacks.html" class="dropdown-item" onclick="setActive(this)">For Clinical Hacks</a>
                 </div>
             </div>        
-            <a href="contact.html" class="nav-item nav-link" onclick="setActive(this)">Contact Us</a>
+            <a href="policies.html" id="policies" class="nav-item nav-link" onclick="setActive(this)">Policies</a>
+            <a href="contact.html" id="contact_us" class="nav-item nav-link" onclick="setActive(this)">Contact Us</a>
         </div>
         
     </div>
