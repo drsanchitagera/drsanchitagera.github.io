@@ -1,5 +1,5 @@
 BASE_URL = 'http://127.0.0.1:8000/'
-BASE_URL = 'http://43.205.127.151/'
+BASE_URL = 'https://43.205.127.151/'
 window.APP_CONFIG = {
     API_URL: BASE_URL+"api/v1/ebook/free-of-cost/ebook/free",
     PAID_URL: BASE_URL+"api/v1/ebook/paid/ebook/paid",
