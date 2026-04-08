@@ -1,77 +1,215 @@
-// Array of paid eBooks
-const paidBooks = [
-  {
-    title: "Systemic Diseases & Dentistry",
-    price: 999,
-    img: "img/our_books/paid/4.jpeg",
-    desc: "This comprehensive guide provides detailed insights into systemic diseases, their oral manifestations, and the essential pharmacological knowledge for dentists."
-  },
-  {
-    title: "Physiology Notes",
-    price: 499,
-    img: "img/our_books/paid/3.jpeg",
-    desc: "Important questions commonly asked in University exams."
-  },
-  {
-    title: "Pregnancy & Dentistry",
-    price: 399,
-    img: "img/our_books/paid/1.jpeg",
-    desc: "Pharmacological aspect , chair positioning , which trimester is safe and trimester wise treatment protocol."
-  },
-  {
-    title: "Diabetes & Dentistry",
-    price: 299,
-    img: "img/our_books/paid/2.jpeg",
-    desc: "Includes oral changes , pharmacological aspect and modifications in dental treatment."
-  }
-];
+const SEND_EMAIL_FOR_SEND_OTP = window.APP_CONFIG.SEND_EMAIL_FOR_SEND_OTP;
+const VERIFY_EMAIL_FOR_SEND_OTP = window.APP_CONFIG.VERIFY_EMAIL_FOR_SEND_OTP;
+const PAID_API_URL = window.APP_CONFIG.PAID_URL;
+const VERIFY_EMAIL_FOR_SEND_OTP_PAID = window.APP_CONFIG.VERIFY_EMAIL_FOR_SEND_OTP_PAID;
 
-// Build HTML dynamically
-let ebook_paid = `
-<div class="container-fluid menu bg-light py-6 my-6">
-  <div class="container">
-    
-    <div class="d-flex justify-content-between align-items-center">
-      <div class="flex-grow-1 text-center">
-        <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">
-          Paid
-        </small>
-    </div>
-    <div>
-      <a href="#" class="btn btn-primary fw-bold text-uppercase rounded-pill px-4 py-2 mb-3" data-bs-toggle="modal" data-bs-target="#buyNowModalPaid">
-        <i class="bi bi-cart-fill me-2"></i> Buy Now
-      </a>
-    </div>
-    </div>
+async function loadPaidEbooks() {    
+    const container = document.getElementById("ebook_paid");
+    try {
+        const response = await fetch(PAID_API_URL);
 
-    <div class="tab-class text-center">
-        <div class="row g-4">
-`;
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
 
-for (let i = 0; i < paidBooks.length; i++) {
-  ebook_paid += `
-    <div class="col-lg-6 wow bounceInUp" data-wow-delay="0.${i+1}s">
-      <div class="menu-item d-flex align-items-center">
-        <img class="flex-shrink-0 img-fluid rounded-circle" height="20%" width="20%" src="${paidBooks[i].img}" alt="">
-        <div class="w-100 d-flex flex-column text-start ps-4">
-          <div class="d-flex justify-content-between border-bottom border-primary pb-2 mb-2">
-            <h4>${paidBooks[i].title}</h4>
-            <h4 class="text-primary">&#8377; ${paidBooks[i].price}</h4>
-          </div>
-          <p class="mb-0">${paidBooks[i].desc}</p>
-        </div>
-      </div>
-    </div>
-  `;
+        const htmlContent = await response.text();
+
+        if (container) {
+            container.innerHTML = htmlContent;
+        }
+
+    } catch (error) {
+        console.error("Error fetching ebooks:", error);
+
+        if (container) {
+            let message;
+
+            // Detect server down / connection refused
+            if (
+                error.message.includes("Failed to fetch") ||
+                error.message.includes("ERR_CONNECTION_REFUSED") ||
+                error.message.includes("NetworkError")
+            ) {
+                message = `
+                    <div class="d-flex flex-column align-items-center justify-content-center py-5">
+                        <div class="mb-3">
+                            <!-- Bootstrap Icon or Emoji -->
+                            <i class="bi bi-tools" style="font-size:3rem; color:#dc3545;"></i>
+                        </div>
+                        <h2 class="text-danger fw-bold">Website Under Maintenance</h2>
+                        <p class="text-muted">We’re working hard to bring everything back online. Please check again later.</p>
+                    </div>
+                `;
+            } else {
+                message = `
+                    <div class="text-center py-5">
+                        <p class="text-danger">Failed to load eBooks. Please try again later.</p>
+                    </div>
+                `;
+            }
+
+            container.innerHTML = message;
+        }
+    }
 }
 
-ebook_paid += `
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
+// 5. Initialize when the window loads
+window.addEventListener('DOMContentLoaded', loadPaidEbooks);
 
-// Inject into DOM
-document.getElementById("ebook_paid").innerHTML = ebook_paid;
+
+async function handleApiSubmitForPaidBook() {
+  const name = document.getElementById("api_name").value.trim();
+  const email = document.getElementById("api_email").value.trim();
+  const resource = document.getElementById("api_resource").value;
+  const phone_no = document.getElementById("api_phone_number").value;
+
+  // Basic validation
+  let valid = true;
+  if (!name) { document.getElementById("err_name").style.display = "block"; valid = false; }
+  else { document.getElementById("err_name").style.display = "none"; }
+
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    document.getElementById("err_email").style.display = "block"; valid = false;
+  } else { document.getElementById("err_email").style.display = "none"; }
+
+  if (!resource) { document.getElementById("err_resource").style.display = "block"; valid = false; }
+  else { document.getElementById("err_resource").style.display = "none"; }
+  
+  if (!phone_no) { document.getElementById("api_phone_number").style.display = "block"; valid = false; }
+  else { document.getElementById("err_phone_no").style.display = "none"; }
+
+  if (!valid) return;
+
+  // Disable submit button
+  const submitBtn = document.querySelector("button[onclick='handleApiSubmitForPaidBook()']");
+  submitBtn.disabled = true;
+  submitBtn.innerText = "Processing...";
+
+  try {
+    const res = await fetch(SEND_EMAIL_FOR_SEND_OTP, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, type: "Paid-EBooks" })
+    });
+    const data = await res.json();
+
+    if (res.ok) {
+      document.getElementById("api_status").innerHTML = `
+            📧 A secure verification code has been sent to your email. Please check your inbox.<br/>
+            <span style="color:#2a7ae2; font-weight:bold;">
+            🔑 Please enter the full 6-digit code.
+            </span>
+        `;
+    
+      // Show 6 OTP boxes + Verify + Resend buttons
+      document.getElementById("api_status").insertAdjacentHTML("afterend", `
+        <div class="mt-3 d-flex justify-content-center gap-2" id="otp-boxes">
+          ${Array.from({ length: 6 }).map((_, i) =>
+            `<input type="text" maxlength="1" class="form-control text-center" 
+                     style="width:40px; font-size:1.2em;" id="otp_${i}">`).join("")}
+        </div>
+        <div class="mt-3 d-flex justify-content-between">
+          <button type="button" onclick="verifyPaidOtp('${name}', '${email}', '${resource}', '${phone_no}')" 
+                  class="btn btn-success w-50 me-2">Verify OTP & Pay Now</button>
+          <button type="button" onclick="resendPaidOtp('${email}', '${resource}')" 
+                  class="btn btn-secondary w-50">Resend OTP</button>
+        </div>
+      `);
+
+      // Auto-focus next box
+      document.querySelectorAll("#otp-boxes input").forEach((box, idx, arr) => {
+        box.addEventListener("input", () => {
+          if (box.value && idx < arr.length - 1) arr[idx + 1].focus();
+        });
+      });
+
+    } else {
+      document.getElementById("api_status").innerText =
+        data.detail || "⚠️ We’re experiencing a technical issue. Please try again.";
+      submitBtn.disabled = false;
+      submitBtn.innerText = "Submit Request";
+    }
+  } catch (err) {
+    document.getElementById("api_status").innerText = "⚠️ Server error: " + err.message;
+    submitBtn.disabled = false;
+    submitBtn.innerText = "Submit Request";
+  }
+}
+
+
+async function verifyPaidOtp(name, email, resource, mobile_no) {
+  
+  const otp = Array.from({ length: 6 })
+    .map((_, i) => document.getElementById(`otp_${i}`).value.trim())
+    .join("");
+
+  try {
+    const res = await fetch(VERIFY_EMAIL_FOR_SEND_OTP_PAID, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, type: "Paid-EBooks", otp , resource, mobile_no})});
+    const data = await res.json();
+    console.log(data);
+    if (res.ok) {
+
+      setTimeout(() => {
+        // Clear form fields
+        document.getElementById("api_name").value = "";
+        document.getElementById("api_email").value = "";
+        document.getElementById("api_resource").value = "";
+        document.getElementById("api_phone_number").value = "";
+
+        // Clear status message
+        document.getElementById("api_status").innerText = "";
+
+        // Remove OTP boxes
+        const otpBoxes = document.getElementById("otp-boxes");
+        if (otpBoxes) otpBoxes.remove();
+
+        // Remove Verify/Resend buttons
+        const verifyBtn = document.querySelector("button[onclick^='verifyPaidOtp']");
+        const resendBtn = document.querySelector("button[onclick^='resendPaidOtp']");
+        if (verifyBtn) verifyBtn.remove();
+        if (resendBtn) resendBtn.remove();
+
+        // Re-enable submit button
+        const submitBtn = document.querySelector("button[onclick='handleApiSubmitForPaidBook()']");
+        submitBtn.disabled = false;
+        submitBtn.innerText = "Submit Request";
+
+        const paymentUrl = data.detail;
+        if (paymentUrl) {
+          window.location.href = paymentUrl;
+        }
+      }, 1000); 
+
+    } else {
+      document.getElementById("api_status").innerText = data.detail;
+    }
+  } catch (err) {
+    document.getElementById("api_status").innerText = "⚠️ Server error: " + err.message;
+  }
+}
+
+async function resendPaidOtp(email, resource) {
+  try {
+    const res = await fetch(SEND_EMAIL_FOR_SEND_OTP, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, type: "Paid-EBooks" })
+    });
+    const data = await res.json();
+
+    if (res.ok) {
+      document.getElementById("api_status").innerText =
+        "📧 A new verification code has been sent to your email.";
+      // Clear old OTP boxes
+      document.querySelectorAll("#otp-boxes input").forEach(box => box.value = "");
+    } else {
+      document.getElementById("api_status").innerText =
+        data.detail || "⚠️ Could not resend OTP. Please try again.";
+    }
+  } catch (err) {
+    document.getElementById("api_status").innerText = "⚠️ Server error: " + err.message;
+  }
+}

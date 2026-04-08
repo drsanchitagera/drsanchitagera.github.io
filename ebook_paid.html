@@ -115,102 +115,6 @@
         </div>
         <!-- Fact End -->
 
-         <div class="modal fade" id="buyNowModalPaid" tabindex="-1" aria-labelledby="buyNowModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-            
-            <!-- Modal Header -->
-            <div class="modal-header" >
-                <h5 class="modal-title" id="buyNowModalLabel">Buy Now</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            
-            <!-- Modal Body -->
-            <div class="modal-body">
-                <p>Please enter your details. The PDF will be sent to you shortly. Thank you!</p>
-                
-                <!-- Your Form -->
-                <form id="my-form" action="https://formspree.io/f/mjganzqp" method="POST">
-                <div class="mb-3">
-                    <label for="userName" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="userName" name="name" placeholder="Enter your name" required>
-                </div>
-                
-                <div class="mb-3">
-                    <label for="userEmail" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="userEmail" name="email" placeholder="Enter your email" required>
-                </div>
-                
-                <div class="mb-3">
-                    <label for="userContact" class="form-label">Contact Number</label>
-                    <input type="tel" class="form-control" id="userContact" name="contact" placeholder="Enter your contact number" required>
-                </div>
-                
-                <div class="mb-3">
-                    <label for="userMessage" class="form-label">Select Premium Book</label>
-                    <select class="form-control" id="userMessage" name="message" required title="Select the premium dental guide you wish to purchase">
-                        <option value="">-- Select a Premium Book --</option>
-                        <option value="Systemic Diseases">Systemic Diseases & Dentistry</option>
-                        <option value="Physiology Notes">Physiology Clinical Notes</option>
-                        <option value="Pregnancy and Dentistry">Pregnancy & Dentistry Guide</option>
-                        <option value="Diabetes and Dentistry">Diabetes & Dentistry Management</option>
-                    </select>
-                </div>
-
-                
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <!-- <button id="my-form-button" type="button" class="btn" style="background-color:#c19a6b; color:#000;">Submit</button> -->
-                <button id="my-form-button" type="submit" class="btn btn-primary" style="background-color:#c19a6b; color:#000;">Submit</button>
-                <p id="my-form-status"></p>
-                </form>
-
-                <!-- AJAX Script -->
-                <script>
-                var form = document.getElementById("my-form");
-                
-                async function handleSubmit(event) {
-                    event.preventDefault();
-                    var status = document.getElementById("my-form-status");
-                    var data = new FormData(event.target);
-                    console.log(data);
-                    // return false;
-                    fetch(event.target.action, {
-                    method: form.method,
-                    body: data,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                    }).then(response => {
-                    if (response.ok) {
-                        status.innerHTML = "✅ The Payment details will be sent to you through whatsapp. After completing payment we will share the PDF directly on your email.Thankyou";
-                        form.reset();
-                    } else {
-                        response.json().then(data => {
-                        if (Object.hasOwn(data, 'errors')) {
-                            status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
-                        } else {
-                            status.innerHTML = "❌ Oops! There was a problem submitting your form.";
-                        }
-                        });
-                    }
-                    }).catch(error => {
-                    status.innerHTML = "❌ Oops! There was a problem submitting your form.";
-                    });
-                }
-
-                form.addEventListener("submit", handleSubmit);
-                </script>
-
-            </div>
-            
-            <!-- Modal Footer -->
-            <div class="modal-footer">
-                
-            </div>
-            
-            </div>
-        </div>
-        </div>
         <div id="footer"></div>
         <!-- Back to Top -->
         <a href="#" class="btn btn-md-square btn-primary rounded-circle back-to-top" aria-label="Scroll to top"><i class="fa fa-arrow-up"></i></a>
@@ -225,6 +129,7 @@
         <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
         <!-- Template Javascript -->
+         <script src="js/config.js"></script>
         <script src="js/main.js"></script>
         <script src="js/header.js"></script>
         <script src="js/ebook_paid.js"></script>
