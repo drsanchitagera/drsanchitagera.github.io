@@ -24,8 +24,8 @@ if (currentUrl.includes("?")) {
     alert(data.message);
   })
   .catch(err => {
-    console.log('err: '+err.message)
-    alert(err.message);
+    console.log('err: '+err.detail)
+    alert(err.detail);
   });
 } else {
   console.log("No query params, skipping API call.");
