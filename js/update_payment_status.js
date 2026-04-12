@@ -20,23 +20,12 @@ if (currentUrl.includes("?")) {
   })
   .then(res => res.json())
   .then(data => {
-    try {
-      if (data.message == 'undefined'){
-        console.log('err: '+data.detail)
-        alert(data.detail);    
-         
-      }else{
-        console.log('data '+data.message);
-        alert(data.message);   
-      }
-    } catch (error) {
-      // alert(error)  
-    }
-    
+    console.log('data '+data.message);
+    alert(data.message);
   })
   .catch(err => {
-    console.log('err: '+err.detail)
-    alert(err.detail);
+    console.log('err: '+err.message)
+    alert(err.message);
   });
 } else {
   console.log("No query params, skipping API call.");
