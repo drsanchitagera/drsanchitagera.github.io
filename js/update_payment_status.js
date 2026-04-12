@@ -21,11 +21,11 @@ if (currentUrl.includes("?")) {
   .then(res => res.json())
   .then(data => {
     console.log('data '+data.message);
-    alert("API Response:", data.message);
+    alert(data.message);
   })
   .catch(err => {
     console.log('err: '+err.message)
-    alert("API Error:", err.message);
+    alert(err.message);
   });
 } else {
   console.log("No query params, skipping API call.");
