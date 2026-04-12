@@ -20,8 +20,18 @@ if (currentUrl.includes("?")) {
   })
   .then(res => res.json())
   .then(data => {
-    console.log('data '+data.message);
-    alert(data.message);
+    try {
+      if (data.message == 'undefined'){
+        console.log('data '+data.message);
+        alert(data.message);    
+      }else{
+        console.log('err: '+err.detail)
+        alert(err.detail);    
+      }
+    } catch (error) {
+      
+    }
+    
   })
   .catch(err => {
     console.log('err: '+err.detail)
