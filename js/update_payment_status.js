@@ -29,7 +29,7 @@ if (currentUrl.includes("?")) {
         alert(err.detail);    
       }
     } catch (error) {
-      
+      alert(error)  
     }
     
   })
