@@ -25,11 +25,11 @@ if (currentUrl.includes("?")) {
         console.log('data '+data.message);
         alert(data.message);    
       }else{
-        console.log('err: '+err.detail)
-        alert(err.detail);    
+        console.log('err: '+data.detail)
+        alert(data.detail);    
       }
     } catch (error) {
-      alert(error)  
+      // alert(error)  
     }
     
   })
