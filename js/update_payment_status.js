@@ -20,10 +20,12 @@ if (currentUrl.includes("?")) {
   })
   .then(res => res.json())
   .then(data => {
-    alert("API Response:", data);
+    console.log('data '+data.message);
+    alert("API Response:", data.message);
   })
   .catch(err => {
-    alert("API Error:", err);
+    console.log('err: '+err.message)
+    alert("API Error:", err.message);
   });
 } else {
   console.log("No query params, skipping API call.");
